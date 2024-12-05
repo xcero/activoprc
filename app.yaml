@@ -1,0 +1,44 @@
+runtime: php81  # Especifica el runtime para PHP
+env: standard   # Ambiente estándar de App Engine
+
+instance_class: F1  # Clase económica de instancia
+
+handlers:
+  # Sirve recursos estáticos como CSS, imágenes y JavaScript
+  - url: /css
+    static_dir: css
+
+  # Sirve imágenes desde el directorio "data"
+  - url: /data
+    static_dir: data
+
+  # Rutas para los archivos PHP (todos deben estar definidos explícitamente)
+  - url: /exportar_excel.php
+    script: exportar_excel.php
+
+  - url: /logout.php
+    script: logout.php
+
+  - url: /listado.php
+    script: listado.php
+
+  - url: /detalle.php
+    script: detalle.php
+
+  - url: /consulta.php
+    script: consulta.php
+
+  # Redirigir la raíz a index.php si lo deseas, pero no debe ser el único script
+  #- url: /index.php
+  #  script: index.php
+
+  # Si deseas servir otros scripts PHP, debes definir cada uno de ellos.
+  # Por ejemplo, si tienes un archivo "otro.php" sería algo como:
+  # - url: /otro.php
+  #   script: otro.php
+
+env_variables:
+  DB_HOST: "34.23.157.126"
+  DB_USER: "admin"
+  DB_PASS: "Ache676seam157"
+  DB_NAME: "prcactivofijo"
